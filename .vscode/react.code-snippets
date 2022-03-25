@@ -1,0 +1,29 @@
+{
+  "Create a context component" : {
+    "description": "Create a context object, and a provider component",
+    "prefix": "cont",
+    "body": [
+      "import { createContext, useState } from \"react\"\n",
+      "export const $1Context = createContext()\n",
+      "export function $1Provider({children}) {",
+      "\tconst [$2, set$3] = useState(null);\n",
+      "\treturn (",
+      "\t\t<$1Context.Provider value={{$2}}>",
+      "\t\t\t{children}",
+      "\t\t</$1Context.Provider>",
+      "\t)",
+      "}\n",
+    ]
+  },
+
+  "Create a component function": {
+    "prefix": "comp",
+    "body": [
+      "export default function $1() {",
+      "\treturn(",
+      "\t\t<></>",
+      "\t)",
+      "}"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+
+  "describe block": {
+    "prefix": "desc",
+    "body": [
+      "describe('$1', () => {",
+      "\t$2",
+      "})"
+    ]
+  },
+  "it block": {
+    "prefix": "it",
+    "body": [
+      "it('$1', () => {",
+      "\t$2",
+      "})"
+    ]
+  },
+  "unit test block" : {
+    "prefix": "test",
+    "body": [
+      "test('$1', () => {",
+      "\t$2",
+      "})"
+    ]
+  }
+}

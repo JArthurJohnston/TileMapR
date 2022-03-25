@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import ControlsSidebar from './components/ControlsSidebar';
+import MenuBar from './components/MenuBar';
+import ProjectProvider from './data/ProjectProvider';
+import SpriteProvider from './data/SpriteProvider';
+import Canvas, { Grid } from './components/canvas'
+import {PaintbrushProvider, SettingsProvider} from './data';
+
+const styles = {
+  container: {
+    height: '93vh'
+  },
+  main: {
+    display: 'flex',
+    height: '100%',
+  }
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <SettingsProvider>
+        <ProjectProvider>
+          <SpriteProvider>
+            <PaintbrushProvider>
+              <div style={styles.container}>
+                <MenuBar />
+                <div style={styles.main}>
+                  <ControlsSidebar />
+                  <Canvas resolution={{ x: 100, y: 100 }}>
+                    <Grid isVisible={false} />
+                  </Canvas>
+                </div>
+              </div>
+            </PaintbrushProvider>
+          </SpriteProvider>
+        </ProjectProvider>
+      </SettingsProvider>
+    </>
   );
 }
 
