@@ -1,8 +1,8 @@
 import { useContext, useState } from "react"
 import {SettingsContext} from '../../data'
 
+
 export default function ShowGridMenuItem() {
-  const [isSelected, setIsSelected] = useState(false)
   const {showGrid, setShowGrid} = useContext(SettingsContext)
 
   return (

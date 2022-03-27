@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { createContext, useCallback, useEffect, useRef, useState } from "react"
 import { Rectangle } from "../../drawing/shapes"
 import calculateWindowSize from "./calculateWindowSize"
@@ -14,6 +15,7 @@ const styles = {
   canvas: {
     width: '100%',
     height: '100%',
+    cursor: 'crosshair'
   }
 }
 
