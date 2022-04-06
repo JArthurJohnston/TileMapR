@@ -1,5 +1,5 @@
 import ControlsSidebar from './components/ControlsSidebar';
-import MenuBar from './components/MenuBar';
+import MenuBar from './components/menu/MenuBar';
 import ProjectProvider from './data/ProjectProvider';
 import SpriteProvider from './data/SpriteProvider';
 import Canvas, { Grid } from './components/canvas'

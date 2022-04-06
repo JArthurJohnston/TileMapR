@@ -2,7 +2,7 @@ import { useRef, useState } from "react"
 
 const styles = {
   item: {
-    height: '100%'
+    marginLeft: '1em'
   },
   menu: {
     position: 'absolute',
@@ -28,14 +28,11 @@ export default function MenuItem({ text, children }) {
   }
 
   return (
-    <>
-      <div ref={ref} onMouseOver={addHover} onMouseLeave={removeHover} onClick={() => setIsOpen(true)}>
-        {text}
-        <div style={styles.menu} className="nes-container" hidden={!isOpen}>
-          {children}
-        </div>
+    <div style={styles.item} ref={ref} onMouseOver={addHover} onMouseLeave={removeHover} onClick={() => setIsOpen(true)}>
+      {text}
+      <div style={styles.menu} className="nes-container" hidden={!isOpen}>
+        {children}
       </div>
-    </>
-
+    </div>
   )
 }

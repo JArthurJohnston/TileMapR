@@ -1,4 +1,5 @@
 import React from "react"
+import Background from "./Background"
 import CanvasEngine from "./engine/CanvasEngine"
 
 const styles = {
@@ -8,7 +9,8 @@ const styles = {
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'lightgrey'
+    backgroundColor: 'lightgrey',
+    cursor: 'crosshair',
   },
   canvas: {
     width: '100%',
@@ -44,6 +46,7 @@ export function CanvasProvider({ children, resolution }) {
   return (
     <CanvasContext.Provider value={{ resolution, size, scale }}>
       <div ref={containerRef} style={styles.container}>
+        <Background />
         <canvas id='the-canvas' ref={canvasRef} style={canvasStyle} onMouseMove={CanvasEngine.MouseListener.onMouseMove}>
         </canvas>
           {canvasIsReady && children}

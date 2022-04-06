@@ -1,7 +1,6 @@
 import iro from '@jaames/iro';
-import { useCallback } from 'react';
 import { useContext, useEffect, useRef, useState } from 'react';
-import { PaintbrushContext } from '../data/PaintbrushProvider';
+import { PaintbrushContext } from '../../data/PaintbrushProvider';
 
 const styles = {
   container: {
@@ -18,9 +17,9 @@ const styles = {
 
 }
 
-export default function ColorPicker() {
+export default function ColorPicker({onChange, startingColor, buttonText}) {
   const [isVisible, setIsVisible] = useState(false)
-  const { setColor, color } = useContext(PaintbrushContext)
+  const [ color, setColor ] = useState(startingColor)
   const [containerStyle, setContainerStyle] = useState(styles.container)
   const ref = useRef()
 
@@ -50,12 +49,13 @@ export default function ColorPicker() {
     var colorPicker = new iro.ColorPicker(ref.current);
     colorPicker.on('color:change', function (color) {
       setColor(color.hexString)
+      onChange(color.hexString)
     });
   }, [])
 
   return (
     <>
-      <button className='nes-btn' onClick={toggle} style={{ backgroundColor: color }}>Color</button>
+      <button className='nes-btn' onClick={toggle} style={{ backgroundColor: color }}>{buttonText}</button>
       <div style={styles.tooltipAnchor}>
         <div style={styles.dialog} >
           <div style={containerStyle} className='nes-container is-rounded'>

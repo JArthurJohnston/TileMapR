@@ -3,11 +3,6 @@ import { SettingsContext } from "../../data";
 import Draw from "../../drawing";
 import { CanvasContext } from "./CanvasProvider"
 
-/**
- * If I REALLY wanted to be performant here, Id draw the grid once, then 
- * just toggle the visibility of the canvas...
- * @returns 
- */
 export default function Grid() {
   const { size, scale } = React.useContext(CanvasContext)
   const { showGrid } = React.useContext(SettingsContext)
@@ -16,7 +11,8 @@ export default function Grid() {
   const gridStyle = {
     width: size.width,
     height: size.height,
-    position: 'absolute'
+    position: 'absolute',
+    visibility: showGrid ? 'visible' : 'hidden'
   }
 
   React.useEffect(() => {
@@ -24,6 +20,7 @@ export default function Grid() {
     context.imageSmoothingEnabled = false
     canvasRef.current.width = size.width
     canvasRef.current.height = size.height
+    drawGrid()
   }, [])
 
   const drawGrid = () => {
@@ -47,19 +44,7 @@ export default function Grid() {
     }
   }
 
-  const clearGrid = () => {
-    const context = canvasRef.current.getContext('2d')
-    context.clearRect(0,0, size.width, size.height)
-  }
-
-  React.useEffect(() => {
-    if(showGrid)
-      drawGrid()
-    else
-      clearGrid()
-  }, [showGrid])
-
-  return (<canvas ref={canvasRef} style={gridStyle}>Grid</canvas>)
+  return (<canvas ref={canvasRef} style={gridStyle}/>)
 }
 
 // makes a cool shape

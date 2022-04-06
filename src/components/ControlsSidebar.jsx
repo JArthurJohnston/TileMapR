@@ -1,4 +1,4 @@
-import ColorPicker from "./ColorPicker"
+import { PaintbrushColorPicker } from "./color-pickers"
 
 const style = {
   minHeight: "20em",
@@ -14,6 +14,6 @@ const style = {
 export default function ControlsSidebar() {
   return (
   <div style={style}>
-    <ColorPicker />
+    <PaintbrushColorPicker />
   </div>)
 }
