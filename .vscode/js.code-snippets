@@ -1,0 +1,27 @@
+{
+  "create a class" : {
+    "prefix": "cla",
+    "body": [
+      "export default class $1 {",
+      "\t$2",
+      "}"
+    ]
+  },
+
+  "class constructor": {
+    "prefix": "cons",
+    "body": [
+      "constructor($1){",
+      "\t$2",
+      "}"
+    ]
+  },
+
+  "initialize class field" : {
+    "prefix": "fie",
+    "description": "initialize a class field inside the class' constructor",
+    "body": [
+      "this.$1 = $1"
+    ]
+  }
+}

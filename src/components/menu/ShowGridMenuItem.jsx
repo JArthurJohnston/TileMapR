@@ -1,7 +1,6 @@
 import { useContext, useState } from "react"
 import {SettingsContext} from '../../data'
 
-
 export default function ShowGridMenuItem() {
   const {showGrid, setShowGrid} = useContext(SettingsContext)
 

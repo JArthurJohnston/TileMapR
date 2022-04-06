@@ -7,7 +7,7 @@ import {PaintbrushProvider, SettingsProvider} from './data';
 
 const styles = {
   container: {
-    height: '93vh'
+    height: '94vh'
   },
   main: {
     display: 'flex',
@@ -26,7 +26,7 @@ function App() {
                 <MenuBar />
                 <div style={styles.main}>
                   <ControlsSidebar />
-                  <Canvas resolution={{ x: 100, y: 100 }}>
+                  <Canvas resolution={{ x: 150, y: 100 }}>
                     <Grid isVisible={false} />
                   </Canvas>
                 </div>

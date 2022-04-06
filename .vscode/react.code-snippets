@@ -19,11 +19,52 @@
   "Create a component function": {
     "prefix": "comp",
     "body": [
+      "import React from 'react'\n",
       "export default function $1() {",
       "\treturn(",
       "\t\t<></>",
       "\t)",
       "}"
+    ]
+  },
+
+  "Use state hook" : {
+    "prefix": "ust",
+    "body": [
+      "const [$1, set$2] = React.useState($3)"
+    ]
+  },
+
+  "Use context hook" : {
+    "prefix": "uco",
+    "body": [
+      "const {$1} = React.useContext($2Context)"
+    ],
+    "description": "Creates a useContext statement. This assumes the context your using ends with the word 'Context'"
+  },
+
+  "Use ref hook" : {
+    "prefix": "ure",
+    "body": [
+      "const $1Ref = React.useRef()"
+    ],
+  },
+
+  "Use effect hook" : {
+    "prefix": "uef",
+    "body": [
+      "React.useEffect(() => {",
+      "\t$1",
+      "}, [$2])"
+    ]
+  },
+
+  "Use Callback hook": {
+    "prefix": "uca",
+    "body": [
+      "const $1 = React.useCallback(() => {",
+      "\t$2",
+      "}, [$3])"
     ]
   }
 }

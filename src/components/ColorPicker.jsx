@@ -1,4 +1,5 @@
 import iro from '@jaames/iro';
+import { useCallback } from 'react';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { PaintbrushContext } from '../data/PaintbrushProvider';
 
@@ -10,13 +11,26 @@ const styles = {
   },
   dialog: {
     position: 'absolute'
+  },
+  tooltipAnchor: {
+    position: 'relative'
   }
+
 }
 
 export default function ColorPicker() {
+  const [isVisible, setIsVisible] = useState(false)
   const { setColor, color } = useContext(PaintbrushContext)
   const [containerStyle, setContainerStyle] = useState(styles.container)
   const ref = useRef()
+
+  const toggle = () => {
+    setIsVisible(!isVisible)
+  }
+
+  useEffect(() => {
+    isVisible ? show() : hide()
+  }, [isVisible])
 
   const show = () => {
     setContainerStyle({
@@ -41,11 +55,13 @@ export default function ColorPicker() {
 
   return (
     <>
-      <button className='nes-btn' onClick={show} style={{ backgroundColor: color }}>Color</button>
-      <div style={styles.dialog} >
-        <div style={containerStyle} className='nes-container is-rounded'>
-          <div ref={ref} />
-          <button className='nes-btn' onClick={hide}>OK</button>
+      <button className='nes-btn' onClick={toggle} style={{ backgroundColor: color }}>Color</button>
+      <div style={styles.tooltipAnchor}>
+        <div style={styles.dialog} >
+          <div style={containerStyle} className='nes-container is-rounded'>
+            <div ref={ref} />
+            <button className='nes-btn' onClick={toggle}>OK</button>
+          </div>
         </div>
       </div>
     </>
