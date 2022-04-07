@@ -5,6 +5,6 @@ import ColorPicker from './ColorPicker'
 export default function PaintbrushColorPicker() {
   const {color, setColor} = React.useContext(PaintbrushContext)
   return(
-    <ColorPicker startingColor={color} onChange={setColor} buttonText='Color'/>
+    <ColorPicker color={color} onChange={setColor} buttonText='Color'/>
   )
 }

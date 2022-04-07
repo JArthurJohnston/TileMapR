@@ -1,5 +1,5 @@
 import iro from '@jaames/iro';
-import { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { PaintbrushContext } from '../../data/PaintbrushProvider';
 
 const styles = {
@@ -9,19 +9,30 @@ const styles = {
     flexDirection: 'column'
   },
   dialog: {
-    position: 'absolute'
+    position: 'absolute',
+    zIndex: 1
   },
   tooltipAnchor: {
     position: 'relative'
+  },
+  buttonContainer : {
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    paddingTop: '1em',
   }
-
 }
 
-export default function ColorPicker({onChange, startingColor, buttonText}) {
+//TODO allow users to cancel color selection
+//startingColor should be the color setting
+//the internal color state should just be the previewColor
+//the color setting should only be changed when the user clicks ok
+
+//TODO make this dialog close when the user clicks something else
+export default function ColorPicker({ onChange, color, buttonText }) {
   const [isVisible, setIsVisible] = useState(false)
-  const [ color, setColor ] = useState(startingColor)
+  const [chosenColor, setChosenColor] = useState(color)
   const [containerStyle, setContainerStyle] = useState(styles.container)
-  const ref = useRef()
+  const colorPickerElementRef = useRef()
 
   const toggle = () => {
     setIsVisible(!isVisible)
@@ -46,12 +57,16 @@ export default function ColorPicker({onChange, startingColor, buttonText}) {
   }
 
   useEffect(() => {
-    var colorPicker = new iro.ColorPicker(ref.current);
+    var colorPicker = new iro.ColorPicker(colorPickerElementRef.current);
     colorPicker.on('color:change', function (color) {
-      setColor(color.hexString)
-      onChange(color.hexString)
+      setChosenColor(color.hexString)
     });
   }, [])
+
+  const updateColor = React.useCallback(() => {
+    onChange(chosenColor)
+    toggle()
+  }, [chosenColor])
 
   return (
     <>
@@ -59,8 +74,11 @@ export default function ColorPicker({onChange, startingColor, buttonText}) {
       <div style={styles.tooltipAnchor}>
         <div style={styles.dialog} >
           <div style={containerStyle} className='nes-container is-rounded'>
-            <div ref={ref} />
-            <button className='nes-btn' onClick={toggle}>OK</button>
+            <div ref={colorPickerElementRef} />
+            <div style={styles.buttonContainer}>
+              <button className='nes-btn' style={{ backgroundColor: chosenColor }} onClick={updateColor}>OK</button>
+              <button className='nes-btn' onClick={toggle}>Cancel</button>
+            </div>
           </div>
         </div>
       </div>
