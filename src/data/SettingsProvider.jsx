@@ -4,7 +4,7 @@ import useStorage from '../hooks/useStorage';
 export const SettingsContext = React.createContext()
 
 export default function SettingsProvider({children}) {
-  const [showGrid, setShowGrid] = React.useState(false);
+  const [showGrid, setShowGrid] = useStorage('show-grid', false);
   const [backgroundColor, setBackgroundColor] = useStorage('background-color', '#FFFFFF')
 
   return (

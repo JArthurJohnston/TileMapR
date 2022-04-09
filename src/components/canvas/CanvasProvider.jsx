@@ -11,11 +11,6 @@ const styles = {
     alignItems: 'center',
     backgroundColor: 'lightgrey',
     cursor: 'crosshair',
-  },
-  canvas: {
-    width: '100%',
-    height: '100%',
-    cursor: 'crosshair'
   }
 }
 
@@ -36,7 +31,7 @@ export function CanvasProvider({ children, resolution }) {
       containerRef.current.offsetWidth, 
       containerRef.current.offsetHeight
     ).then(size => {
-      setCanvasStyle(size)
+      setCanvasStyle({...size, zIndex: 1})
       setSize(size)
       setScale(size.width / resolution.x) //pixelSize == scale or zoom
       setCanvasIsReady(true)
@@ -44,10 +39,13 @@ export function CanvasProvider({ children, resolution }) {
   }, [])
 
   return (
-    <CanvasContext.Provider value={{ resolution, size, scale }}>
+    <CanvasContext.Provider value={{ resolution, size, scale, canvasRef: canvasRef.current }}>
       <div ref={containerRef} style={styles.container}>
         <Background />
-        <canvas id='the-canvas' ref={canvasRef} style={canvasStyle} onMouseMove={CanvasEngine.MouseListener.onMouseMove}>
+        <canvas id='the-canvas' 
+          ref={canvasRef} 
+          style={canvasStyle}
+        >
         </canvas>
           {canvasIsReady && children}
       </div>

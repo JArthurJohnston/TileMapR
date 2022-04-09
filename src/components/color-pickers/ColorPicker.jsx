@@ -1,6 +1,5 @@
 import iro from '@jaames/iro';
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import { PaintbrushContext } from '../../data/PaintbrushProvider';
+import React, { useEffect, useRef, useState } from 'react';
 
 const styles = {
   container: {
@@ -10,7 +9,7 @@ const styles = {
   },
   dialog: {
     position: 'absolute',
-    zIndex: 1
+    zIndex: 3
   },
   tooltipAnchor: {
     position: 'relative'
@@ -22,12 +21,6 @@ const styles = {
   }
 }
 
-//TODO allow users to cancel color selection
-//startingColor should be the color setting
-//the internal color state should just be the previewColor
-//the color setting should only be changed when the user clicks ok
-
-//TODO make this dialog close when the user clicks something else
 export default function ColorPicker({ onChange, color, buttonText }) {
   const [isVisible, setIsVisible] = useState(false)
   const [chosenColor, setChosenColor] = useState(color)

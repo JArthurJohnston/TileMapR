@@ -1,6 +1,15 @@
+const EventTypes = {
+  MOVED: 'mousemove',
+  DOWN: 'mousedown',
+  UP: 'mouseup'
+}
 export default class MouseListener {
   constructor(){
-    this.listeners = []
+    this.listeners = {
+      [EventTypes.MOVED]: [],
+      [EventTypes.DOWN]: [],
+      [EventTypes.UP]: []
+    }
   }
   
   initialize(width, height, resolution, canvasRef) {
@@ -8,19 +17,24 @@ export default class MouseListener {
     this.height = height
     this.resolution = resolution
     this.canvasRef = canvasRef
+    this.pixelSize = width / resolution.x;
   }
 
-  addMouseListener(listener) {
-    this.listeners.push(listener)
+  addMouseListener(listener, eventType) {
+    this.listeners[eventType].push(listener)
   }
 
-  onMouseMove = (mouseEvent) => {
-    this.listeners.forEach(listener => {    
-      const pixelSize = this.width / this.resolution.x;
-      const canvasX = mouseEvent.clientX - this.canvasRef.offsetLeft
-      const canvasY = mouseEvent.clientY - this.canvasRef.offsetTop
-      const pixelX = Math.floor(canvasX / pixelSize)
-      const pixelY = Math.floor(canvasY / pixelSize)
+  coordsFromMouseEvent = (mouseEvent) => {
+    const canvasX = mouseEvent.clientX - this.canvasRef.offsetLeft
+    const canvasY = mouseEvent.clientY - this.canvasRef.offsetTop
+    const pixelX = Math.floor(canvasX / this.pixelSize)
+    const pixelY = Math.floor(canvasY / this.pixelSize)
+    return {canvasX, canvasY, pixelX, pixelY}
+  }
+
+  handleMouseEvent = (mouseEvent) => {
+    this.listeners[mouseEvent.type].forEach(listener => {
+      const {canvasX, canvasY, pixelX, pixelY} = this.coordsFromMouseEvent(mouseEvent)
       listener(canvasX, canvasY, pixelX, pixelY)
     });
   }

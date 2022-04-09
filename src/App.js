@@ -4,6 +4,7 @@ import ProjectProvider from './data/ProjectProvider';
 import SpriteProvider from './data/SpriteProvider';
 import Canvas, { Grid } from './components/canvas'
 import {PaintbrushProvider, SettingsProvider} from './data';
+import DrawingArea from './components/canvas/DrawingArea';
 
 const styles = {
   container: {
@@ -26,8 +27,9 @@ function App() {
                 <MenuBar />
                 <div style={styles.main}>
                   <ControlsSidebar />
-                  <Canvas resolution={{ x: 150, y: 100 }}>
+                  <Canvas resolution={{ x: 50, y: 50 }}>
                     <Grid isVisible={false} />
+                    <DrawingArea />
                   </Canvas>
                 </div>
               </div>
