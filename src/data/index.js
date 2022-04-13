@@ -1,7 +1,6 @@
 import PaintbrushProvider, {PaintbrushContext} from "./PaintbrushProvider";
 import ProjectProvider, {ProjectContext} from "./ProjectProvider";
 import SettingsProvider, {SettingsContext} from "./SettingsProvider";
-import SpriteProvider, {SpriteContext} from './SpriteProvider';
 
 export {
   PaintbrushContext,
@@ -10,6 +9,4 @@ export {
   ProjectProvider,
   SettingsContext,
   SettingsProvider,
-  SpriteContext,
-  SpriteProvider
 }

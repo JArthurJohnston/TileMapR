@@ -1,17 +1,18 @@
 import React from "react";
+import Storage from "../data/Storage";
 
 export default function useStorage(key, defaultValue=null) {
   const [data, setData] = React.useState(defaultValue)
 
   React.useEffect(() => {
-    const storedData = localStorage.getItem(key)
+    const storedData = Storage.get(key)
     if(storedData){
-      setData(JSON.parse(storedData))
+      setData(storedData)
     }
   }, [])
   
   const updateStoredData = React.useCallback((newData) => {
-    localStorage.setItem(key, JSON.stringify(newData))
+    Storage.save(key, newData)
     setData(newData)
   }, [])
 

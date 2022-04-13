@@ -1,3 +1,4 @@
+import Storage, { Data } from "../../../data/Storage"
 import Draw from "../../../drawing"
 import calculateWindowSize from "../calculateWindowSize"
 import MouseListener from "./MouseListener"
@@ -12,7 +13,6 @@ class CanvasEngineClass {
 
   constructor() {
     this.mouseListener = new MouseListener()
-    this.layers = []
   }
   
   initialize(canvasRef, resolution, maxWidth, maxHeight) {
@@ -29,13 +29,14 @@ class CanvasEngineClass {
     canvasRef.height = height
     return new Promise((resolve) => {
       resolve({ width, height })
+      this.draw()
     })
   }
 
   initPixels = (resolution) => {
-    const storedPixels = localStorage.getItem('pixels')
+    const storedPixels = Storage.get(Data.PIXELS)
     if(storedPixels) {
-      this.pixels = JSON.parse(storedPixels)
+      this.pixels = storedPixels
     } else {
       this.pixels = Array(resolution.x).fill().map(() => Array(resolution.y));
     }
@@ -46,7 +47,7 @@ class CanvasEngineClass {
   }
 
   clear() {
-    // this.context.clearRect(0, 0, this.width, this.height)
+    this.context.clearRect(0, 0, this.width, this.height)
   }
 
   drawPixel(x, y, color) {
@@ -58,8 +59,19 @@ class CanvasEngineClass {
       .on(this.context)
   }
 
+  clearPixel(x, y) {
+    this.pixels[x][y] = null
+    this.context.clearRect(x * this.pixelSize, y * this.pixelSize, this.pixelSize, this.pixelSize)
+    this.updateCache()
+  }
+
   updateCache = () => {
-    localStorage.setItem('pixels', JSON.stringify(this.pixels))
+    Storage.save(Data.PIXELS, this.pixels)
+  }
+
+
+  getPixel(x, y) {
+    return this.pixels[x][y]
   }
 
   draw() {
@@ -81,11 +93,6 @@ class CanvasEngineClass {
   paint() {
     this.draw()
     this.updateCache()
-  }
-
-  addLayer(canvasRef) {
-    canvasRef.width = this.width
-    canvasRef.height = this.height
   }
 }
 

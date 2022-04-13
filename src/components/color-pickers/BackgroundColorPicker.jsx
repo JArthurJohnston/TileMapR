@@ -6,7 +6,7 @@ export default function BackgroundColorPicker() {
   const { backgroundColor, setBackgroundColor } = React.useContext(SettingsContext)
   return (
     <ColorPicker
-      startingColor={backgroundColor}
+      color={backgroundColor}
       onChange={setBackgroundColor}
       buttonText='Background Color'
     />

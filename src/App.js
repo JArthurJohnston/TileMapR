@@ -1,7 +1,6 @@
 import ControlsSidebar from './components/ControlsSidebar';
 import MenuBar from './components/menu/MenuBar';
 import ProjectProvider from './data/ProjectProvider';
-import SpriteProvider from './data/SpriteProvider';
 import Canvas, { Grid } from './components/canvas'
 import {PaintbrushProvider, SettingsProvider} from './data';
 import DrawingArea from './components/canvas/DrawingArea';
@@ -21,7 +20,6 @@ function App() {
     <>
       <SettingsProvider>
         <ProjectProvider>
-          <SpriteProvider>
             <PaintbrushProvider>
               <div style={styles.container}>
                 <MenuBar />
@@ -34,7 +32,6 @@ function App() {
                 </div>
               </div>
             </PaintbrushProvider>
-          </SpriteProvider>
         </ProjectProvider>
       </SettingsProvider>
     </>
