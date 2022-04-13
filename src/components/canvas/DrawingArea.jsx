@@ -27,7 +27,7 @@ export default function DrawingArea() {
   const drawPixel = useCallback(mouseEvent => {
     const { pixelX, pixelY } = coordsFromMouseEvent(mouseEvent)
     tool.action(pixelX, pixelY, color)
-  }, [tool])
+  }, [tool, color])
 
   const handleMouseDown = mouseEvent => {
     drawPixel(mouseEvent)

@@ -8,7 +8,7 @@ const styles = {
     position: 'absolute',
     backgroundColor: 'white',
     color: 'black',
-    zIndex: 1
+    zIndex: 5
   }
 }
 
