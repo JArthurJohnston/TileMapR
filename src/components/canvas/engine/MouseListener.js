@@ -17,7 +17,7 @@ export default class MouseListener {
     this.height = height
     this.resolution = resolution
     this.canvasRef = canvasRef
-    this.pixelSize = width / resolution.x;
+    this.pixelSize = width / resolution.width;
   }
 
   addMouseListener(listener, eventType) {

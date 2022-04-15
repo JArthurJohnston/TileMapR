@@ -1,5 +1,6 @@
 import { BackgroundColorPicker } from "../color-pickers"
 import MenuItem from "./MenuItem"
+import ResolutionMenu from "./ResolutionMenu"
 import ShowGrid from "./ShowGrid"
 
 const style = {
@@ -17,10 +18,11 @@ export default function MenuBar() {
   return (
     <div style={style}>
       <MenuItem text={'View'}>
-          <ShowGrid />
+        <ShowGrid />
+        <ResolutionMenu />
       </MenuItem>
       <MenuItem text="Drawing">
-        <BackgroundColorPicker/>
+        <BackgroundColorPicker />
       </MenuItem>
     </div>)
 }

@@ -16,11 +16,11 @@ class CanvasEngineClass {
   }
   
   initialize(canvasRef, resolution, maxWidth, maxHeight) {
-    const { width, height } = calculateWindowSize(resolution.x, resolution.y, maxWidth, maxHeight)
+    const { width, height } = calculateWindowSize(resolution.width, resolution.height, maxWidth, maxHeight)
     this.mouseListener.initialize(width, height, resolution, canvasRef)
     this.initPixels(resolution)
     this.context = setupContext(canvasRef, width, height)
-    this.pixelSize = width / resolution.x;
+    this.pixelSize = width / resolution.width;
     this.canvasRef = canvasRef
     this.resolution = resolution
     this.width = width
@@ -38,7 +38,7 @@ class CanvasEngineClass {
     if(storedPixels) {
       this.pixels = storedPixels
     } else {
-      this.pixels = Array(resolution.x).fill().map(() => Array(resolution.y));
+      this.pixels = Array(resolution.width).fill().map(() => Array(resolution.height));
     }
   }
 
@@ -75,8 +75,8 @@ class CanvasEngineClass {
   }
 
   draw() {
-    for (let y = 0; y < this.resolution.y; y++) {
-      for (let x = 0; x < this.resolution.x; x++) {
+    for (let y = 0; y < this.resolution.height; y++) {
+      for (let x = 0; x < this.resolution.width; x++) {
         const color = this.pixels[x][y]
         if (color) {
           this.drawPixel(x, y, color)

@@ -1,10 +1,13 @@
 import { useRef, useState } from "react"
+import HoverHighlight from "./HoverHighlight"
 
 const styles = {
   item: {
     marginLeft: '1em'
   },
   menu: {
+    display: 'flex',
+    flexDirection: 'column',
     position: 'absolute',
     backgroundColor: 'white',
     color: 'black',
@@ -13,26 +16,16 @@ const styles = {
 }
 
 export default function MenuItem({ text, children }) {
-  const ref = useRef()
   const [isOpen, setIsOpen] = useState(false)
 
-  const addHover = () => {
-    ref.current.style.backgroundColor = 'black'
-    ref.current.style.color = 'white'
-  }
-
-  const removeHover = () => {
-    ref.current.style.backgroundColor = 'white'
-    ref.current.style.color = 'black'
-    setIsOpen(false)
-  }
-
   return (
-    <div style={styles.item} ref={ref} onMouseOver={addHover} onMouseLeave={removeHover} onClick={() => setIsOpen(true)}>
-      {text}
-      <div style={styles.menu} className="nes-container" hidden={!isOpen}>
-        {children}
-      </div>
+    <div style={styles.item} onMouseLeave={() => setIsOpen(false)} onClick={() => setIsOpen(true)}>
+      <HoverHighlight>
+        <div style={styles.menu} className="nes-container" hidden={!isOpen}>
+          {children}
+        </div>
+        {text}
+      </HoverHighlight>
     </div>
   )
 }
