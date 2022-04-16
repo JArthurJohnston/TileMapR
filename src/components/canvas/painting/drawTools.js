@@ -4,8 +4,8 @@ function draw(x, y, color, size = 1) {
   CanvasEngine.drawPixel(x, y, color)
 }
 
-function fill(x, y, color) {
-  const startingColor = CanvasEngine.getPixel(x, y)
+function fill(x, y, color, engine=CanvasEngine) {
+  const startingColor = engine.getPixel(x, y)
   fillAll(x, y, color, startingColor)
 }
 

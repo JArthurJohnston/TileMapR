@@ -23,5 +23,14 @@
       "\t$2",
       "})"
     ]
+  },
+
+  "before each call": {
+    "prefix": "bfe",
+    "body": [
+      "beforeEach(() => {",
+      "\t$1",
+      "})"
+    ]
   }
 }

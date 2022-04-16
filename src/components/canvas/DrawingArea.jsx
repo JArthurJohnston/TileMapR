@@ -3,7 +3,7 @@ import { PaintbrushContext } from '../../data'
 import { CanvasContext } from './CanvasProvider'
 import CanvasEngine from './engine/CanvasEngine'
 
-export default function DrawingArea() {
+export default function DrawingArea({ children }) {
   const { color, tool } = React.useContext(PaintbrushContext)
   const { size, canvasRef } = React.useContext(CanvasContext)
   const [isPainting, setIsPainting] = React.useState(false)
@@ -44,6 +44,8 @@ export default function DrawingArea() {
       onMouseMove={drawSection}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-    />
+    >
+      {children}
+    </div>
   )
 }
