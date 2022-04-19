@@ -1,8 +1,8 @@
 {
-  "name": "lvl-builder",
+  "name": "tile-mapr",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jarthurjohnston.github.io/tile-mappr/",
+  "homepage": "https://JArthurJohnston.github.io/TileMapR/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
