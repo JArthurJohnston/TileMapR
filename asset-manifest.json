@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/tile-mappr/static/js/main.33ddaf5c.js",
-    "static/js/787.5474a874.chunk.js": "/tile-mappr/static/js/787.5474a874.chunk.js",
-    "index.html": "/tile-mappr/index.html",
-    "main.33ddaf5c.js.map": "/tile-mappr/static/js/main.33ddaf5c.js.map",
-    "787.5474a874.chunk.js.map": "/tile-mappr/static/js/787.5474a874.chunk.js.map"
+    "main.js": "/TileMapR/static/js/main.234cae96.js",
+    "static/js/787.5474a874.chunk.js": "/TileMapR/static/js/787.5474a874.chunk.js",
+    "index.html": "/TileMapR/index.html",
+    "main.234cae96.js.map": "/TileMapR/static/js/main.234cae96.js.map",
+    "787.5474a874.chunk.js.map": "/TileMapR/static/js/787.5474a874.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.33ddaf5c.js"
+    "static/js/main.234cae96.js"
   ]
 }
