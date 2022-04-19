@@ -1,7 +1,7 @@
 import CanvasEngine from "../engine/CanvasEngine"
 
 function draw(x, y, color, size = 1) {
-  CanvasEngine.drawPixel(x, y, color)
+  CanvasEngine.paintPixel(x, y, color)
 }
 
 function fill(x, y, color, engine=CanvasEngine) {

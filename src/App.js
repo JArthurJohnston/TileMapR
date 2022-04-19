@@ -21,7 +21,7 @@ function App() {
         <MenuBar />
         <div style={styles.main}>
           <ControlsSidebar />
-          <Canvas resolution={{ x: 50, y: 50 }}>
+          <Canvas>
             <Grid isVisible={false} />
             <DrawingArea />
           </Canvas>
