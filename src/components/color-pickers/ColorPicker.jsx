@@ -1,5 +1,6 @@
 import iro from '@jaames/iro';
 import React, { useEffect, useRef, useState } from 'react';
+import { Layers } from '../canvas';
 
 const styles = {
   container: {
@@ -11,7 +12,8 @@ const styles = {
     position: 'absolute',
   },
   tooltipAnchor: {
-    position: 'relative'
+    position: 'relative',
+    zIndex: Layers.WIDGET
   },
   buttonContainer : {
     display: 'flex',

@@ -11,13 +11,11 @@ export default function HoverHighlight({ children }) {
   const hoverRef = React.useRef()
 
   const addHover = () => {
-    console.log('hovering');
     hoverRef.current.style.backgroundColor = 'black'
     hoverRef.current.style.color = 'white'
   }
 
   const removeHover = () => {
-    console.log('not hovering');
     hoverRef.current.style.backgroundColor = 'white'
     hoverRef.current.style.color = 'black'
   }

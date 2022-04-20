@@ -1,5 +1,5 @@
 import React from "react"
-import { Layers } from "."
+import Layers  from "./layers.json"
 import { ImageContext } from "../../data"
 import Background from "./Background"
 import CanvasEngine from "./engine/CanvasEngine"

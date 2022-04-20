@@ -3,5 +3,6 @@
   "CANVAS": 2,
   "GRID": 3,
   "DRAWING_AREA": 4,
-  "MENU": 5
+  "MENU": 5,
+  "WIDGET": 5
 }
