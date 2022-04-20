@@ -1,4 +1,5 @@
 import { useRef, useState } from "react"
+import { Layers } from "../canvas"
 import HoverHighlight from "./HoverHighlight"
 
 const styles = {
@@ -11,7 +12,7 @@ const styles = {
     position: 'absolute',
     backgroundColor: 'white',
     color: 'black',
-    zIndex: 5
+    zIndex: Layers.MENU
   }
 }
 

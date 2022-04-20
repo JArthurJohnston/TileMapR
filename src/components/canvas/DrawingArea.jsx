@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react'
+import { Layers } from '.'
 import { PaintbrushContext } from '../../data'
 import { CanvasContext } from './CanvasProvider'
 import CanvasEngine from './engine/CanvasEngine'
@@ -16,7 +17,12 @@ export default function DrawingArea({ children }) {
     return { pixelX, pixelY }
   }
 
-  const style = { width: size.width, height: size.height, position: 'absolute', zIndex: 2 }
+  const style = { 
+    width: size.width, 
+    height: size.height, 
+    position: 'absolute', 
+    zIndex: Layers.DRAWING_AREA
+  }
 
   const drawSection = (mouseEvent) => {
     if (isPainting) {

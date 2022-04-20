@@ -1,4 +1,5 @@
 import React from "react"
+import { Layers } from "."
 import { ImageContext } from "../../data"
 import Background from "./Background"
 import CanvasEngine from "./engine/CanvasEngine"
@@ -12,6 +13,9 @@ const styles = {
     alignItems: 'center',
     backgroundColor: 'lightgrey',
     cursor: 'crosshair',
+  },
+  canvas: {
+    zIndex: Layers.CANVAS
   }
 }
 
@@ -34,7 +38,7 @@ export function CanvasProvider({ children }) {
         containerRef.current.offsetWidth,
         containerRef.current.offsetHeight
       ).then(size => {
-        setCanvasStyle({ ...size, zIndex: 1 })
+        setCanvasStyle({ ...size, ...styles.canvas})
         setSize(size)
         setScale(size.width / resolution.width) //pixelSize == scale or zoom
         setCanvasIsReady(true)

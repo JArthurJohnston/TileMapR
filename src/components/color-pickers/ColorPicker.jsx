@@ -9,7 +9,6 @@ const styles = {
   },
   dialog: {
     position: 'absolute',
-    zIndex: 3
   },
   tooltipAnchor: {
     position: 'relative'

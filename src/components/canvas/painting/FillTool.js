@@ -30,9 +30,6 @@ export function floodFill(pixels, x, y, color) {
     }
   }
 
-  const fillRight = (pixels, x, y, color) => fillLine(x, y, color, 'right')
-  const fillLeft = (pixels, x, y, color) => fillLine(x, y, color, 'left')
-
   const recursiveFill = (pixels, x, y, color) => {
     if (outOfBounds(x, y)) {
       return

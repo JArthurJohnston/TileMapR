@@ -1,4 +1,5 @@
 import React from "react"
+import { Layers } from ".";
 import { SettingsContext } from "../../data";
 import Draw from "../../drawing";
 import { CanvasContext } from "./CanvasProvider"
@@ -12,7 +13,8 @@ export default function Grid() {
     width: size.width,
     height: size.height,
     position: 'absolute',
-    visibility: showGrid ? 'visible' : 'hidden'
+    visibility: showGrid ? 'visible' : 'hidden',
+    zIndex: Layers.GRID
   }
 
   React.useEffect(() => {
