@@ -1,4 +1,4 @@
-import FillTool, { floodFill } from "../components/canvas/painting/FillTool"
+import FillTool, { floodFill, stackFill } from "../components/canvas/painting/FillTool"
 
 function buildMockEngine(width, height) {
   const pixels = Array(width).fill().map(() => Array(height))
@@ -26,6 +26,7 @@ function expectPixelsAreFilled(pixels, expectedColor) {
 }
 
 describe('FillTool', () => {
+  const expectedColor = '#FFF'
 
   describe('fill', () => {
     describe.each([
@@ -34,7 +35,6 @@ describe('FillTool', () => {
       it(`should fill a ${size} by ${size} image`, () => {
         const engine = buildMockEngine(size, size)
         const tool = new FillTool(engine)
-        const expectedColor = '#FFF'
 
         tool.fill(0, 0, expectedColor)
 
@@ -92,6 +92,17 @@ describe('FillTool', () => {
 
         expectPixelsAreFilled(pixels, expectedColor)
       })
+    })
+  })
+
+  describe('stackFill', () => {
+
+    it('should fill the array', () => {
+      const pixels = Array(50).fill().map(() => Array(50))
+
+      stackFill(0,0, expectedColor, pixels)
+      
+      expectPixelsAreFilled(pixels, expectedColor)
     })
   })
 })

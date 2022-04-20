@@ -1,4 +1,5 @@
 import CanvasEngine from "../engine/CanvasEngine"
+import FillTool from "./FillTool"
 
 function draw(x, y, color, size = 1) {
   CanvasEngine.paintPixel(x, y, color)
@@ -32,7 +33,7 @@ function fillAll(x, y, color, startingColor) {
 }
 
 export const PEN = { label: 'Pen', action: draw }
-export const FILL = { label: 'Fill', action: fill }
+export const FILL = new FillTool()
 export const ERASER = { label: 'Eraser', action: erase }
 export const getTool = (toolName) => {
   return [PEN, FILL, ERASER].find(e => e.label === toolName)
