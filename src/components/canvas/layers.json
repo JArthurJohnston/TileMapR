@@ -4,5 +4,6 @@
   "GRID": 3,
   "DRAWING_AREA": 4,
   "MENU": 5,
-  "WIDGET": 5
+  "WIDGET": 5,
+  "OVERLAY": 6
 }

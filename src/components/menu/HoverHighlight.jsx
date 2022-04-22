@@ -7,7 +7,7 @@ const styles = {
   }
 }
 
-export default function HoverHighlight({ children }) {
+export default function HoverHighlight({ children, onClick}) {
   const hoverRef = React.useRef()
 
   const addHover = () => {
@@ -21,7 +21,7 @@ export default function HoverHighlight({ children }) {
   }
 
   return (
-    <div ref={hoverRef} onMouseOver={addHover} onMouseLeave={removeHover} style={styles.main}>
+    <div onClick={onClick} ref={hoverRef} onMouseOver={addHover} onMouseLeave={removeHover} style={styles.main}>
       {children}
     </div>
   )
