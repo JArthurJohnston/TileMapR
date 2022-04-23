@@ -3,7 +3,7 @@ import { Layers } from '../canvas'
 
 const styles = {
   background: {
-    backgroundColor: 'rgba(0,0,0, 0.9)',
+    backgroundColor: 'rgba(0,0,0, 0.7)',
     zIndex: Layers.OVERLAY,
     position: 'fixed',
     height: '100vh',
