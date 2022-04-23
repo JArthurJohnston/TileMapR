@@ -4,13 +4,6 @@ object-assign
 @license MIT
 */
 
-/*!
- * iro.js v5.5.2
- * 2016-2021 James Daniel
- * Licensed under MPL 2.0
- * github.com/jaames/iro.js
- */
-
 /** @license React v0.20.2
  * scheduler.production.min.js
  *
