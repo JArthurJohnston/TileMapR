@@ -1,5 +1,6 @@
 import { BackgroundColorPicker } from "../color-pickers"
 import MenuItem from "./MenuItem"
+import ResizeMenuItem from "./ResizeMenuItem"
 import ResolutionMenu from "./ResolutionMenu"
 import Save from "./Save"
 import ShowGrid from "./ShowGrid"
@@ -24,6 +25,7 @@ export default function MenuBar() {
       <MenuItem text={'View'}>
         <ShowGrid />
         <ResolutionMenu />
+        <ResizeMenuItem />
       </MenuItem>
       <MenuItem text="Drawing">
         <BackgroundColorPicker />

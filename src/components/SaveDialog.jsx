@@ -3,6 +3,7 @@ import { SettingsContext } from '../data'
 import Draw from '../drawing'
 import CanvasEngine from './canvas/engine/CanvasEngine'
 import { DialogContext } from './modal/DialogProvider'
+import { Checkbox } from './primitives'
 
 const styles = {
   container: {
@@ -29,6 +30,11 @@ export default function SaveDialog() {
   const [useBackground, setUseBackground] = React.useState(false)
   const { backgroundColor } = React.useContext(SettingsContext)
   const [downloadUrl, setDownloadUrl] = React.useState('')
+
+  const downloadFile = () => {
+    closeDialog()
+    return true
+  }
 
   React.useEffect(() => {
     const pixels = CanvasEngine.pixels
@@ -90,14 +96,16 @@ export default function SaveDialog() {
         <button className='nes-btn' onClick={increaseScale}>{'>'}</button>
       </div>
       <div>
-        <label>
-          <input type="checkbox" className="nes-checkbox" checked={useBackground} onChange={() => setUseBackground(!useBackground)} />
-          <span>Include Background</span>
-        </label>
+        <Checkbox
+          label='Include Background'
+          startingVal={useBackground}
+          onChange={() => setUseBackground(!useBackground)}
+        />
         <div style={styles.buttonsContainer}>
-          <a 
-            download='tilemapr-image.png' 
-            href={downloadUrl} 
+          <a
+            onClick={() => downloadFile()}
+            download='tilemapr-image.png'
+            href={downloadUrl}
             className={`nes-btn ${downloadUrl ? '' : 'is-disabled'}`}
           >Download</a>
           <button className='nes-btn' onClick={closeDialog}>Cancel</button>

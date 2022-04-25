@@ -1,5 +1,6 @@
 import React from 'react'
 import { SettingsContext } from '../../data'
+import { Checkbox } from '../primitives'
 import HoverHighlight from './HoverHighlight'
 
 export default function ShowGridMenuItem() {
@@ -7,10 +8,11 @@ export default function ShowGridMenuItem() {
 
   return (
     <HoverHighlight>
-      <label>
-        <input type="checkbox" className="nes-checkbox" checked={showGrid} onChange={() => setShowGrid(!showGrid)} />
-        <span>Show Grid</span>
-      </label>
+      <Checkbox
+        label='Show Grid'
+        onChange={() => setShowGrid(!showGrid)}
+        startingVal={showGrid}
+      />
     </HoverHighlight>
   )
 }

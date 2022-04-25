@@ -6,7 +6,7 @@ import HoverHighlight from './HoverHighlight'
 export default function Save() {
   const { showDialog, closeDialog } = React.useContext(DialogContext)
 
-  const dialog = <SaveDialog isVisible={showDialog} onClose={closeDialog} />
+  const dialog = <SaveDialog onClose={closeDialog} />
   return (
     <>
       <HoverHighlight onClick={() => showDialog(dialog)}>
