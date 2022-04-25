@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/TileMapR/static/js/main.6fef8671.js",
+    "main.js": "/TileMapR/static/js/main.d23afd7c.js",
     "static/js/787.c97eb854.chunk.js": "/TileMapR/static/js/787.c97eb854.chunk.js",
     "index.html": "/TileMapR/index.html",
-    "main.6fef8671.js.map": "/TileMapR/static/js/main.6fef8671.js.map",
+    "main.d23afd7c.js.map": "/TileMapR/static/js/main.d23afd7c.js.map",
     "787.c97eb854.chunk.js.map": "/TileMapR/static/js/787.c97eb854.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.6fef8671.js"
+    "static/js/main.d23afd7c.js"
   ]
 }
