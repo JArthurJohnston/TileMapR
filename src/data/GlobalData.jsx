@@ -1,16 +1,14 @@
 import React from 'react'
-import { SettingsProvider, PaintbrushProvider, ImageProvider } from '.'
+import { SettingsProvider, PaintbrushProvider } from '.'
 import { DialogProvider } from '../components/modal/DialogProvider'
 
 export default function GlobalData({ children }) {
   return (
     <SettingsProvider>
       <DialogProvider>
-        <ImageProvider>
-          <PaintbrushProvider>
-            {children}
-          </PaintbrushProvider>
-        </ImageProvider>
+        <PaintbrushProvider>
+          {children}
+        </PaintbrushProvider>
       </DialogProvider>
     </SettingsProvider>
   )

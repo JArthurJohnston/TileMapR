@@ -93,8 +93,8 @@ export default function ResizeDialog() {
       </div>
       <div>
         <div style={styles.buttonsContainer}>
-          <Button label='OK'/>
-          <Button label='Cancel' onClick={closeDialog}/>
+          <Button label='OK' />
+          <Button label='Cancel' onClick={closeDialog} />
         </div>
       </div>
     </div>

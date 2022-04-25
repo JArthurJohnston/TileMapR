@@ -25,12 +25,28 @@ class CanvasEngineClass {
     this.resolution = resolution
     this.width = width
     this.height = height
+    this.maxWidth = maxWidth
+    this.maxHeight = maxHeight
     canvasRef.width = width
     canvasRef.height = height
     return new Promise((resolve) => {
       resolve({ width, height })
       this.draw()
     })
+  }
+
+  reInit(pixels) {
+    const px = pixels.length
+    const py = pixels[0].length
+    const { width, height } = calculateWindowSize(px, py, this.maxWidth, this.maxHeight)
+    this.resolution = {width: px, height: py}
+    this.width = width
+    this.height = height
+    this.canvasRef.width = width
+    this.canvasRef.height = height
+    this.pixels = pixels
+
+    this.paint()
   }
 
   initPixels = (resolution) => {
